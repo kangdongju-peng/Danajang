@@ -18,4 +18,7 @@ class PageAdapter(fm : FragmentManager) : FragmentStatePagerAdapter(fm) {
     override fun getCount(): Int {
         return items.size
     }
+    fun updateFragments(items : List<Fragment>){
+        this.items.addAll(items)
+    }
 }
