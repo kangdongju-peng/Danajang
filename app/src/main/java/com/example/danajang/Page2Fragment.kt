@@ -23,8 +23,8 @@ class Page2Fragment : Fragment() {
     companion object {
         private const val num = "num"
         @JvmStatic
-        fun newInstance(Number: Int): Page1Fragment {
-            return Page1Fragment().apply {
+        fun newInstance(Number: Int): Page2Fragment {
+            return Page2Fragment().apply {
                 arguments = Bundle().apply {
                     putInt(num, Number)
                 }

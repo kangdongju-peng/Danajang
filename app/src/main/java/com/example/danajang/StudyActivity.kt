@@ -7,6 +7,8 @@ import kotlinx.android.synthetic.main.activity_study.*
 
 class StudyActivity: AppCompatActivity() {
     //단어 공부하는 프레그먼트 페이지
+    val sp = SharedPreference( this )
+    val WORLD_COUNT = "world count"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_study)
@@ -16,6 +18,7 @@ class StudyActivity: AppCompatActivity() {
         view_pager.adapter = Adapter
         view_pager.currentItem=0
         // 탭 레아아웃에 뷰페이저 연결
+
 
 
     }

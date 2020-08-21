@@ -1,5 +1,6 @@
 package com.example.danajang
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,9 @@ import androidx.fragment.app.Fragment
 
 class Page1Fragment : Fragment() {
     //프레그먼트1
+    //val sp = SharedPreference( context)
+    val WORLD_COUNT = "world count"
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
