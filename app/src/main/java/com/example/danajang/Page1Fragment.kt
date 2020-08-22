@@ -6,10 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import kotlinx.android.synthetic.main.fragment_1.*
 
 class Page1Fragment : Fragment() {
     //프레그먼트1
-    //val sp = SharedPreference( context)
+    //val sp = SharedPreference( requireContext())
     val WORLD_COUNT = "world count"
 
     override fun onCreateView(
@@ -17,6 +18,7 @@ class Page1Fragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_1, container, false)
+        //textView.text = sp.getString(WORLD_COUNT)
         return root
     }
     // 뷰 생성이 완료되면 호출되는 메소드

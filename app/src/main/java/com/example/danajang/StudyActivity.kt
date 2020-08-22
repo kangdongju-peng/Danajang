@@ -7,8 +7,7 @@ import kotlinx.android.synthetic.main.activity_study.*
 
 class StudyActivity: AppCompatActivity() {
     //단어 공부하는 프레그먼트 페이지
-    val sp = SharedPreference( this )
-    val WORLD_COUNT = "world count"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_study)
