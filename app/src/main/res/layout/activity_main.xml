@@ -44,7 +44,7 @@
         android:focusable="true"
         tools:ignore="VectorDrawableCompat" />
 
-    <ImageButton
+    <!--<ImageButton
         android:id="@+id/add"
         android:layout_width="95dp"
         android:layout_height="95dp"
@@ -53,6 +53,6 @@
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="300dp"
         tools:layout_editor_absoluteY="620dp"
-        android:contentDescription="TODO" />
+        android:contentDescription="TODO" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
