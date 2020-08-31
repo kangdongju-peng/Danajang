@@ -27,10 +27,6 @@ class StudyActivity: AppCompatActivity() {
                 Log.d("*****",f.toString())
                 if (f != null)
                     count++
-                    //if(count == 2)
-                     //
-                //
-                //   count == 0
             }
             mNumber = count
         }
@@ -53,13 +49,7 @@ class StudyActivity: AppCompatActivity() {
             override fun onPageSelected(position: Int) {
 
                 Log.d("******",position.toString() + "2222222")
-                //if(position < COUNT){
-                  //  view_pager.setCurrentItem(position + COUNT,false)
-
-                //} else if(position >= COUNT * 2){
-
-                    //view_pager.setCurrentItem(position -COUNT,false)
-                //}
+                //무한스크롤
                 if(position >= 4 ) {
                     view_pager.setCurrentItem(1,false)
                 }
@@ -80,12 +70,7 @@ class StudyActivity: AppCompatActivity() {
                 super.onPageScrollStateChanged(state)
             }
         })
-        //view_pager.currentItem=0
-        // 탭 레아아웃에 뷰페이저 연결
-        //for(i in 1 until sp.getString(WORLD_COUNT)!!.toInt() step 1){
-           // var fragmentManager = getSupportFragmentManager()
-            //fragmentManager.beginTransaction()
-              //  .add(R.id.)
+
         }
 
 

@@ -13,12 +13,17 @@ class Page1Fragment : Fragment() {
     //val sp = SharedPreference( requireContext())
     val WORLD_COUNT = "world count"
 
+
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_1, container, false)
-        //textView.text = sp.getString(WORLD_COUNT)
+        val world_list : ArrayList<String>
+        world_list = (getActivity() as SharedPreference).getArrayList(context!!,SharedPreference.voca_name) //단어 리스트를 가져오ㅁ
+        //image = world_list[(getActivity() as LoadAdapter).getCount()]    <-- 이미지를 월드리스트에서 가져옴
         return root
     }
     // 뷰 생성이 완료되면 호출되는 메소드

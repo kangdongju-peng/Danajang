@@ -12,6 +12,9 @@ class Page3Fragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_3, container, false)
+        val world_list : ArrayList<String>
+        world_list = (getActivity() as SharedPreference).getArrayList(context!!,SharedPreference.voca_name) //단어 리스트를 가져오ㅁ
+        //image = world_list[(getActivity() as LoadAdapter).getCount()]    <-- 이미지를 월드리스트에서 가져옴
         return root
     }
     // 뷰 생성이 완료되면 호출되는 메소드

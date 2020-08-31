@@ -11,6 +11,9 @@ class SharedPreference(context : Context) {
     val SETTING_PLAYER = "setting player"
     val PREFS_FILENAME = "prefs"
     val PREF_KEY_MY_EDIT = "myEditText"
+    companion object{
+        var voca_name : String = ""
+    }
     val context = context
     fun setString(key: String, value: String){
         //값 저장하는 함수
