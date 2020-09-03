@@ -42,6 +42,7 @@ class StudyActivity: AppCompatActivity() {
         // 뷰 페이저에 어댑터 연결
         view_pager.adapter = Adapter
         view_pager.currentItem = 1
+
         view_pager.addOnPageChangeListener(  object : ViewPager.SimpleOnPageChangeListener() {
 
             //override only methods you need, not all of them
@@ -74,7 +75,10 @@ class StudyActivity: AppCompatActivity() {
         }
 
 
+    fun fragmentmethod(): Int{
 
+        return 5
+    }
 
 
 

@@ -25,4 +25,7 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+    fun fragmentmethod() : Int{
+        return 5
+    }
 }
