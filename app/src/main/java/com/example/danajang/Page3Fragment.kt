@@ -16,10 +16,11 @@ class Page3Fragment : Fragment() {
     ): View? {
         val root = inflater.inflate(R.layout.fragment_3, container, false)
         val world_list : ArrayList<String>
-        world_list = (getActivity() as SharedPreference).getArrayList(context!!,SharedPreference.voca_name) //단어 리스트를 가져오ㅁ
+
+        world_list =  App.prefs.getArrayList(context!!,MySharedPreference.voca_name) //단어 리스트를 가져오ㅁ
         //image = world_list[(getActivity() as LoadAdapter).getCount()]    <-- 이미지를 월드리스트에서 가져옴
-        var uri = Uri.parse("file:///" + Environment.getExternalStorageDirectory() + world_list[(getActivity() as LoadAdapter).getCount()])
-        image_view.setImageURI(uri) // 이미지 표시하기
+        var uri = Uri.parse("file:///" + Environment.getExternalStorageDirectory() + world_list[App.prefs.getCount()])
+        image_view.setImageURI(uri)
 
         return root
     }

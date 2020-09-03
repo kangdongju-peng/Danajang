@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        val sp = SharedPreference(this )
+        val sp = MySharedPreference(this )
         val WORLD_COUNT = "world count"
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

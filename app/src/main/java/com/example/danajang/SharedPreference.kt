@@ -6,11 +6,23 @@ import org.json.JSONException
 import java.lang.reflect.Array.get
 import java.nio.file.Paths.get
 
-class SharedPreference(context : Context) {
+class MySharedPreference(context : Context) {
     //SharedPreference 데이터 저장하는곳
     val SETTING_PLAYER = "setting player"
     val PREFS_FILENAME = "prefs"
     val PREF_KEY_MY_EDIT = "myEditText"
+    private var count = -1
+
+    //프래그먼트에서 이미지를 불러올때 사용하는 카운트 가져오기
+    fun getCount(): Int {
+        count ++
+        return count
+    }
+    //카운트 저장하기
+    fun setCount(): Unit? {
+        count = -1
+        return null
+    }
     companion object{
         var voca_name : String = ""
     }

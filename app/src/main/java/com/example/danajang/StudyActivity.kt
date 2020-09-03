@@ -35,7 +35,7 @@ class StudyActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_study)
-        val sp = SharedPreference(this )
+        val sp = MySharedPreference(this )
         val WORLD_COUNT = "world count"
         // 어댑터 생성 <어댑터는 여러 프래그먼트를 만들고 관리함>
         val Adapter = PageAdapter(supportFragmentManager)
@@ -75,10 +75,7 @@ class StudyActivity: AppCompatActivity() {
         }
 
 
-    fun fragmentmethod(): Int{
 
-        return 5
-    }
 
 
 

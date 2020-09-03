@@ -12,7 +12,7 @@ class AddActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add)
-        val sp = SharedPreference( this )
+        val sp = MySharedPreference( this )
         finishbtn.setOnClickListener {
             sp.setString(WORLD_COUNT,editText_num.text.toString())
             //단어수를 저장
