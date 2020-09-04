@@ -22,6 +22,9 @@ class Page3Fragment : Fragment() {
         var uri = Uri.parse("file:///" + Environment.getExternalStorageDirectory() + world_list[App.prefs.getCount()])
         image_view.setImageURI(uri)
 
+
+
+        App.prefs.plusCount()
         return root
     }
     // 뷰 생성이 완료되면 호출되는 메소드

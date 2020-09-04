@@ -11,16 +11,19 @@ class MySharedPreference(context : Context) {
     val SETTING_PLAYER = "setting player"
     val PREFS_FILENAME = "prefs"
     val PREF_KEY_MY_EDIT = "myEditText"
-    private var count = -1
+    private var count = 0
 
     //프래그먼트에서 이미지를 불러올때 사용하는 카운트 가져오기
     fun getCount(): Int {
-        count ++
         return count
     }
     //카운트 저장하기
     fun setCount(): Unit? {
-        count = -1
+        count = 0
+        return null
+    }
+    fun plusCount() : Unit?{
+        count ++
         return null
     }
     companion object{
@@ -38,6 +41,13 @@ class MySharedPreference(context : Context) {
         val prefs = context.getSharedPreferences(PREFS_FILENAME, Context.MODE_PRIVATE)
         return prefs.getString(key, "")
     }
+    fun deleteArrayList(context: Context,key: String){
+        val editor = context.getSharedPreferences(PREFS_FILENAME, Context.MODE_PRIVATE).edit()
+
+        editor.remove(key)
+
+        editor.commit()
+    }
     fun setArrayList(context: Context,key: String, values : ArrayList<String>) {
         //리스트를 저장하는 함수, 단어장을 저장할때 쓰일듯
         val editor = context.getSharedPreferences(PREFS_FILENAME, Context.MODE_PRIVATE).edit()
@@ -51,6 +61,16 @@ class MySharedPreference(context : Context) {
             editor.putString(key, null)
 
         editor.apply()
+    }
+    fun addArratList(context: Context,key: String,value: String){
+        val editor = context.getSharedPreferences(PREFS_FILENAME, Context.MODE_PRIVATE).edit()
+        var a = ArrayList<String>()
+        a = getArrayList(context,key)
+
+        a.add(value)
+
+        deleteArrayList(context,key)
+        setArrayList(context,key,a)
     }
     fun getArrayList(context: Context,key: String) : ArrayList<String> {
         ////리스트를 불러오는 함수, 단어장을 저장할때 쓰일듯
@@ -70,4 +90,9 @@ class MySharedPreference(context : Context) {
         }
         return urls
     }
+    //틀린걸 저장하는 메서드를 만들기
+
+
+
+
 }
