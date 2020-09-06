@@ -27,7 +27,7 @@ class MySharedPreference(context : Context) {
         return null
     }
     companion object{
-        var voca_name : String = ""
+        var voca_name : String = "yoyo"
     }
     val context = context
     fun setString(key: String, value: String){
@@ -41,14 +41,14 @@ class MySharedPreference(context : Context) {
         val prefs = context.getSharedPreferences(PREFS_FILENAME, Context.MODE_PRIVATE)
         return prefs.getString(key, "")
     }
-    fun deleteArrayList(context: Context,key: String){
+    fun deleteArrayList(key: String){
         val editor = context.getSharedPreferences(PREFS_FILENAME, Context.MODE_PRIVATE).edit()
 
         editor.remove(key)
 
         editor.commit()
     }
-    fun setArrayList(context: Context,key: String, values : ArrayList<String>) {
+    fun setArrayList(key: String, values : ArrayList<String>) {
         //리스트를 저장하는 함수, 단어장을 저장할때 쓰일듯
         val editor = context.getSharedPreferences(PREFS_FILENAME, Context.MODE_PRIVATE).edit()
         val a =  JSONArray()
@@ -62,17 +62,17 @@ class MySharedPreference(context : Context) {
 
         editor.apply()
     }
-    fun addArratList(context: Context,key: String,value: String){
+    fun addArratList(key: String,value: String){
         val editor = context.getSharedPreferences(PREFS_FILENAME, Context.MODE_PRIVATE).edit()
         var a = ArrayList<String>()
-        a = getArrayList(context,key)
+        a = getArrayList(key)
 
         a.add(value)
 
-        deleteArrayList(context,key)
-        setArrayList(context,key,a)
+        deleteArrayList(key)
+        setArrayList(key,a)
     }
-    fun getArrayList(context: Context,key: String) : ArrayList<String> {
+    fun getArrayList(key: String) : ArrayList<String> {
         ////리스트를 불러오는 함수, 단어장을 저장할때 쓰일듯
         val prefs = context.getSharedPreferences(PREFS_FILENAME, Context.MODE_PRIVATE)
         val json = prefs.getString(key,null)

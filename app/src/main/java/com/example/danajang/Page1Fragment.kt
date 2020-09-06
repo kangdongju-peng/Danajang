@@ -3,6 +3,7 @@ package com.example.danajang
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,22 +24,26 @@ class Page1Fragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        //good.visibility(View.INVISIBLE)
 
         val root = inflater.inflate(R.layout.fragment_1, container, false)
+        root.good.visibility= View.INVISIBLE
         val world_list : ArrayList<String>
-        world_list =  App.prefs.getArrayList(context!!,MySharedPreference.voca_name) //단어 리스트를 가져오ㅁ
+        world_list =  App.prefs.getArrayList(MySharedPreference.voca_name) //단어 리스트를 가져오ㅁ
         //image = world_list[(getActivity() as LoadAdapter).getCount()]    <-- 이미지를 월드리스트에서 가져옴
-        var uri = Uri.parse("file:///" + Environment.getExternalStorageDirectory() + world_list[App.prefs.getCount()])
-        image_view.setImageURI(uri)
-        done_btn.setOnClickListener {
+        var uri = Uri.parse(/*"file:///" + Environment.getExternalStorageDirectory() +*/ world_list[App.prefs.getCount()])
+
+        Log.d("**",uri.toString())
+        root.image_view.setImageURI(uri)
+        root.done_btn.setOnClickListener {
             //done버튼이
-            //good.setVisibility(View.VISIBLE)
+            root.good.visibility = View.VISIBLE
+
+
 
         }
-        delete_btn.setOnClickListener {
+        root.delete_btn.setOnClickListener {
             //delete버튼이 눌렸을때 틀린걸 저장하기
-            App.prefs.addArratList(context!!,FAULT_WORD,world_list[App.prefs.getCount()])
+            App.prefs.addArratList(FAULT_WORD,world_list[App.prefs.getCount()])
 
         }
 
@@ -46,7 +51,6 @@ class Page1Fragment : Fragment() {
 
 
 
-        App.prefs.plusCount()
         return root
     }
     // 뷰 생성이 완료되면 호출되는 메소드
@@ -54,6 +58,11 @@ class Page1Fragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        App.prefs.plusCount()
     }
     companion object {
         private const val num = "num"
