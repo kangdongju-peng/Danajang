@@ -23,11 +23,11 @@ class MySharedPreference(context : Context) {
         return null
     }
     fun plusCount() : Unit?{
-        count ++
+        count += 2
         return null
     }
     companion object{
-        var voca_name : String = "yoyo"
+        var voca_name : String = ""
     }
     val context = context
     fun setString(key: String, value: String){
@@ -50,6 +50,7 @@ class MySharedPreference(context : Context) {
     }
     fun setArrayList(key: String, values : ArrayList<String>) {
         //리스트를 저장하는 함수, 단어장을 저장할때 쓰일듯
+        //저장할때 단어 사진 먼저 넣고, 정답 사진 두번째로 넣기
         val editor = context.getSharedPreferences(PREFS_FILENAME, Context.MODE_PRIVATE).edit()
         val a =  JSONArray()
 
