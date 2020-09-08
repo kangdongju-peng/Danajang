@@ -27,7 +27,7 @@ class MySharedPreference(context : Context) {
         return null
     }
     companion object{
-        var voca_name : String = ""
+        var voca_name : String = "yoyo"
     }
     val context = context
     fun setString(key: String, value: String){
@@ -91,6 +91,7 @@ class MySharedPreference(context : Context) {
         }
         return urls
     }
+
     //틀린걸 저장하는 메서드를 만들기
 
 

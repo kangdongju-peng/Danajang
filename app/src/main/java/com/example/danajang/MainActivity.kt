@@ -3,6 +3,7 @@ package com.example.danajang
 import android.Manifest
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -26,7 +27,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
+        example_list.add(0,"yoyo")
+        App.prefs.setArrayList(MySharedPreference.voca_name,example_list)
+        textView2.text = sp.getString(WORLD_COUNT)
+        button_studyactivity.setOnClickListener {
+            val intent = Intent(this,StudyActivity::class.java)
+            startActivity(intent)
+    }
+        button_addactivity.setOnClickListener {
+            val intent = Intent(this, AddActivity::class.java)
+            startActivity(intent)
+        }
         //핸드폰 사진 사용권한이 있는지 체
         /*if(ContextCompat.checkSelfPermission(this,Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
             // 권한이 없다면
@@ -46,15 +57,7 @@ class MainActivity : AppCompatActivity() {
         }else{
             getAllPhotos()
         }
-        textView2.text = sp.getString(WORLD_COUNT)
-        button_studyactivity.setOnClickListener {
-            val intent = Intent(this,StudyActivity::class.java)
-            startActivity(intent)
-        }
-        button_addactivity.setOnClickListener {
-            val intent = Intent(this, AddActivity::class.java)
-            startActivity(intent)
-        }
+
 
     }
 
@@ -75,6 +78,11 @@ class MainActivity : AppCompatActivity() {
             }
         }*/
     }
+
+
+
+
+
     private fun getAllPhotos(){
         val cursor = contentResolver.query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,null,null,null,MediaStore.Images.ImageColumns.DATE_TAKEN + "DESC")
     }
